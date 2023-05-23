@@ -1,0 +1,24 @@
+import pyshorteners     
+from tkinter import *
+
+win = Tk()
+win.geometry("400x270")
+win.configure(bg="skyblue")
+#Button Functionality
+def short():
+    url = entry1.get()
+    s = pyshorteners.Shortener().tinyurl.short(url)
+
+
+    entry2.insert(END,s)
+# user url label
+Label(win, text='Enter Your Url Link', font="impack 17 bold", bg="black", fg="white").pack(fill="x")
+#entry box
+entry1 = Entry(win, font="10", bd=3, width=40)
+entry1.pack(pady=30)
+#button
+Button(win, text="submit", font="impack 12 bold", bg="black", fg ="white", command=short).pack()
+#Entry
+entry2 = Entry(win, font="impack 16 bold", bg="pink", width=24, bd=0)
+entry2.pack(pady=30)
+mainloop()
